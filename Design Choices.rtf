@@ -1,0 +1,32 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 Design Choices\
+\
+1> I started this project visualizing that each entity and each message to be a complete independent entity. The reason why I approached this way is to make sure, that the project can be scalable later to incorporate new features and functionality. \
+\
+     So, on that basis of design, I have the following classes.\
+     Node ( as a main driver) , \
+     Boot (as a bootstrap), \
+     Peer ( as each node in network), \
+     Content ( as a file container which holds file information like file name, content and co-ordinates),       \
+     Zone (as the Peer current zone), \
+     Search (as a search key for a filename), \
+     View (to view an Identifier) and \
+     Leave ( as a object requesting network to terminate its presence )\
+\
+\
+2> Coding Language Choice :- I lost most part during the proper choice of implementation medium as I started with Python initially and worked for a week on it, the reason why I took python as my first choice is the availability of its huge network module and significant reduction of code size , which I  thought will help in debugging such a complex project like this. However, soon I face a major challenge in maintaining the logic flow  and have to migrate to other possible alternatives.\
+             Next, I took C++ as my secondary choice and worked for nearly 2 weeks on and off thinking about majority of logics and design stuffs. But as I wrote most part of the project, I faced an issue with object serialization. As C++ takes raw bits , I needed to write an entire serialization code or use library like Boost to get it done. With very few days remaining, I though taking boost as an external library may create some unknown issue going down the road of development plus I wanted to minimize the external library dependencies to minimum. With all my efforts to write my own serializable was not worth for the rest of the task I had to complete, so, I finally migrated to Java.\
+            By this time, I found many people have used Java as their choice of language, and I don\'92t have to handle serialization on my own, made this as my final implementation language. With added advantage of faster implementation in Java, I was able to create my project to this level within 4-6 days of implementation and there is lot to go.\
+\
+3>  CALL Flow\
+  Message passing is a regular CAN structure and procedure, \
+    a> when a node as for the bootstrap for network information. Once it has that information, it will sync its bootObeject with the one from the network. After that any join request creates a Peer object and will take one of the ip from the bootObject and route through to network in CAN fashion. \
+    b>  Insert works same, it hashes its content to Content object and use the filename as a key to compute the co-ordinates where it will finally store.\
+    c>  Search works similar to insert for routing through the network.\
+    d> View  is been implemented to an extent that it will able to view the object once it reached there.\
+    e>  Leave  is been partially implemented and lot of the use cases are missing in this. }

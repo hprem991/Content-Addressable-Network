@@ -1,0 +1,50 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 PROJECT STRUCTURE AND EXECUTION STEPS \
+\
+ You are currently at the present working directory of the project.This folder should contain following files and folders for proper execution.\
+1> It should contain filename "Makefile".\
+2> It should contain filename \'93README\'94.\
+3> It should contain filename \'93Design Choices\'94.\
+4> It should contain java filenames \'93Node.java" ,\'93Boot.java\'94,\'93Peer.java" ,\'93Content.java\'94,\'93Zone.java\'94,\'93Search.java\'94,\'93View.java\'94 and \'93Leave.java" \
+\
+COMMANDS FOR EXECUTION\
+\
+1> Please type "make" at the command prompt from this location.\
+   Example :- admin$ make <ENTER>\
+        This will create a .class file of each of the .java class files in the same directory.\
+\
+2> Now please issue the following command from the same location of the command prompt.\
+\
+         $java Node <bootStrap IP> <port number> \
+          Example :- admin$ java Node <172.168.60.142> <2026>\
+\
+       Now the above command will display a list of action can be done in the network\
+         \
+       NOTE : If either of boot IP or port number is missing, it will pick the hardcoded value from the source code the value of which are bootIP =  localhost , portNo = 9090\
+  \
+\
+        A > Join :-  A node can join a CAN by issuing following command\
+                                                   join <network Identifier> <port number> \
+			Example :- join <localhost> <2026>\
+\
+ NOTE :  Again <network identifier > and <port number > both are user dependent If either of itis missing, it will pick the default value set up by the earlier commands.\
+\
+       B> Insert :- To insert a file please type\
+ 		    insert <filename> \
+                        NOTE : file , filename must exist in the current executing path location.\
+\
+       C> Search :- To search a file please type\
+ 		      search <filename> \
+                         \
+       D> View :- To view a node please type\
+ 		       view <identifier> \
+       E> Leave :- To leave a network please type\
+ 		       view < network identifier> \
+\
+\
+Most of the feature mentioned above is not fully implemented and I have quite a large amount of bugs but due to late start and misleading information , I could only provide the bare minimum of it and have significant issue is various network components. So, please test only one local system for you to have what I truly intent to create.}
